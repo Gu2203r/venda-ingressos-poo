@@ -22,7 +22,7 @@ public class GerenciadorIngresso {
     private int prox = 0;
 
     private GerenciadorArquivo gerenciadorArquivo = new GerenciadorArquivo();
-    private final String CAMINHO_ARQUIVO = "C:\\Users\\gusta\\OneDrive\\Documentos\\Exercicios\\Faculdade\\Terceiro semestre\\DEOO\\Aula3 - Serialização\\venda-ingressos-master\\ingressos.ser";
+    private final String CAMINHO_ARQUIVO = "ingressos.ser";
 
     public GerenciadorIngresso() {
 
