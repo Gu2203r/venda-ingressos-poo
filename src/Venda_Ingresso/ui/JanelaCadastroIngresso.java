@@ -5,6 +5,7 @@
  */
 package Venda_Ingresso.ui;
 
+import Venda_Ingresso.enums.SetorEnum;
 import Venda_Ingresso.services.GerenciadorIngresso;
 import Venda_Ingresso.entities.Ingresso;
 import Venda_Ingresso.exceptions.QuantidadeInvalidaException;
@@ -137,16 +138,9 @@ public class JanelaCadastroIngresso extends JDialog {
 
         ingresso.setQuantidade(qtde);
 
-        // Identifica valores dos ingressos
-        if (setor.equalsIgnoreCase("Amarelo")){
-            valorIngresso = 180.00;
-        } else if (setor.equalsIgnoreCase("Azul")){
-            valorIngresso = 100.00;
-        } else if (setor.equalsIgnoreCase("Branco")){
-            valorIngresso = 60.00;
-        } else if (setor.equalsIgnoreCase("Verde")){
-            valorIngresso = 350.00;
-        }
+        // Usa o Enum para identificar os valores dos ingressos, e define o valor do ingresso com base no setor selecionado
+        SetorEnum setorSelecionado = SetorEnum.valueOf(setor.toUpperCase());
+        valorIngresso = setorSelecionado.getValor();
 
         tipoTorcedor = cbxTipoTorcedor.getSelectedItem().toString();
 
