@@ -6,6 +6,7 @@
 package Venda_Ingresso.services;
 
 import Venda_Ingresso.entities.Ingresso;
+import Venda_Ingresso.enums.SetorEnum;
 import Venda_Ingresso.exceptions.SetorEsgotadoException;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
  */
 public class GerenciadorIngresso {
 
-    private static int maximoIngressos = 100; //Limite máximo de ingressos por setor
+//    private static int maximoIngressos = 100; //Limite máximo de ingressos por setor
     private ArrayList<Ingresso> ingressos;
     private int prox = 0;
 
@@ -51,8 +52,11 @@ public class GerenciadorIngresso {
         }
 
         // Bloqueia compra que ultrapassa o limite maximo permitido no setor
-        if (quantidadeVendidaNoSetor + quantidadeNovaCompra > maximoIngressos) {
-            throw new SetorEsgotadoException("O limite de " + maximoIngressos + " ingressos para o setor " + setorNovoIngresso + " foi atingido.");
+
+        SetorEnum setorEnum = SetorEnum.valueOf(setorNovoIngresso.toUpperCase());
+
+        if (quantidadeVendidaNoSetor + quantidadeNovaCompra > setorEnum.getCapacidade()) {
+            throw new SetorEsgotadoException("O limite de " + setorEnum.getCapacidade() + " ingressos para o setor " + setorNovoIngresso + " foi atingido.");
         }
 
         ingresso.setCodigo(++prox);
