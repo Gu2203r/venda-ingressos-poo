@@ -1,0 +1,28 @@
+========================================
+        RELATÓRIO DE INGRESSOS
+========================================
+
+Código: 1
+Nome: Gustavo
+Setor: Amarelo
+Quantidade: 3
+Valor Unitário: R$ 180,00
+Valor Total: R$ 540,00
+Data/Hora: 14/03/2026 15:06:57
+----------------------------------------
+Código: 2
+Nome: Robert
+Setor: Verde
+Quantidade: 1
+Valor Unitário: R$ 175,00
+Valor Total: R$ 175,00
+Data/Hora: 14/03/2026 15:07:10
+----------------------------------------
+Código: 3
+Nome: Bananada
+Setor: Branco
+Quantidade: 32
+Valor Unitário: R$ 60,00
+Valor Total: R$ 1920,00
+Data/Hora: 15/03/2026 21:39:29
+----------------------------------------
