@@ -24,6 +24,7 @@ public class Ingresso implements Serializable {
     private int quantidade;
     private double valorTotal;
     private String dataHora;
+    private String threadOrigem;
 
     public Ingresso() {
     }
@@ -78,7 +79,15 @@ public class Ingresso implements Serializable {
 
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
-    }    
+    }
+
+    public String getThreadOrigem() {
+        return threadOrigem;
+    }
+
+    public void setThreadOrigem(String threadOrigem) {
+        this.threadOrigem = threadOrigem;
+    }
 
     public void setDataHora(LocalDateTime dataHora) {
         // formatar a data

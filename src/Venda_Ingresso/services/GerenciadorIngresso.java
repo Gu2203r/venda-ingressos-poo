@@ -61,6 +61,8 @@ public class GerenciadorIngresso {
 
         ingresso.setThreadOrigem(Thread.currentThread().getName());
 
+        ingresso.setThreadOrigem(Thread.currentThread().getName());
+
         ingresso.setCodigo(++prox);
         ingressos.add(ingresso); //Adiciona um elemento ao final do ArrayList
 
