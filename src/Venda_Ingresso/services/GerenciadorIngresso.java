@@ -59,6 +59,8 @@ public class GerenciadorIngresso {
             throw new SetorEsgotadoException("O limite de " + setorEnum.getCapacidade() + " ingressos para o setor " + setorNovoIngresso + " foi atingido.");
         }
 
+        ingresso.setThreadOrigem(Thread.currentThread().getName());
+
         ingresso.setCodigo(++prox);
         ingressos.add(ingresso); //Adiciona um elemento ao final do ArrayList
 
@@ -72,7 +74,5 @@ public class GerenciadorIngresso {
     public synchronized ArrayList<Ingresso> getIngressos() {
         return ingressos;
     }
-
-
 
 }
