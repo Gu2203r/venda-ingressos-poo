@@ -35,7 +35,7 @@ public class GerenciadorIngresso {
         }
     }
     
-    public boolean comprarIngresso(Ingresso ingresso) throws SetorEsgotadoException {
+    public synchronized boolean comprarIngresso(Ingresso ingresso) throws SetorEsgotadoException {
         if (ingresso == null) {
             return false;
         }
@@ -69,7 +69,7 @@ public class GerenciadorIngresso {
     }
     
     // Retorna os ingressos adquiridos
-    public ArrayList<Ingresso> getIngressos() {
+    public synchronized ArrayList<Ingresso> getIngressos() {
         return ingressos;
     }
 
