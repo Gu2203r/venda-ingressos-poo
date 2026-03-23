@@ -32,7 +32,6 @@ public class TelaInicial extends JDialog {
     private void criarComponentesTela() {
         btnComprar = new JButton("Comprar Ingresso");
         btnGerarRelatorio = new JButton("Gerar Relatório");
-        btnGerarRelatorio = new JButton("Exportar Relatório");
 
         btnComprar.addActionListener((e) -> {
             JanelaCadastroIngresso janelaCadastroIngresso = new JanelaCadastroIngresso(gerenciador);
