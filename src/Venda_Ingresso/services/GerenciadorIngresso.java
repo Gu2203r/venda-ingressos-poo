@@ -35,7 +35,7 @@ public class GerenciadorIngresso {
         }
     }
     
-    public boolean comprarIngresso(Ingresso ingresso) throws SetorEsgotadoException {
+    public synchronized boolean comprarIngresso(Ingresso ingresso) throws SetorEsgotadoException {
         if (ingresso == null) {
             return false;
         }
@@ -59,6 +59,10 @@ public class GerenciadorIngresso {
             throw new SetorEsgotadoException("O limite de " + setorEnum.getCapacidade() + " ingressos para o setor " + setorNovoIngresso + " foi atingido.");
         }
 
+        ingresso.setThreadOrigem(Thread.currentThread().getName());
+
+        ingresso.setThreadOrigem(Thread.currentThread().getName());
+
         ingresso.setCodigo(++prox);
         ingressos.add(ingresso); //Adiciona um elemento ao final do ArrayList
 
@@ -69,10 +73,8 @@ public class GerenciadorIngresso {
     }
     
     // Retorna os ingressos adquiridos
-    public ArrayList<Ingresso> getIngressos() {
+    public synchronized ArrayList<Ingresso> getIngressos() {
         return ingressos;
     }
-
-
 
 }
