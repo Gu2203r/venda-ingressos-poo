@@ -24,9 +24,9 @@ public class Principal {
      */
     public static void main(String[] args) {
 
-        TelaInicial telaInicial = new TelaInicial();
-
         GerenciadorIngresso gerenciador = new GerenciadorIngresso();
+
+        TelaInicial telaInicial = new TelaInicial(gerenciador);
 
         System.out.println("=== INICIANDO TESTE DE CONCORRÊNCIA ===");
 
@@ -58,18 +58,6 @@ public class Principal {
             Thread.currentThread().interrupt();
         }
 
-        System.out.println("=== RELATÓRIO FINAL DE VENDAS ===");
-        System.out.println("Total de registros no sistema: " + gerenciador.getIngressos().size());
-
-        for (Ingresso ing : gerenciador.getIngressos()) {
-            System.out.println(
-                    "Código: " + ing.getCodigo() +
-                            " | Comprador: " + ing.getNome() +
-                            " | Setor: " + ing.getSetor() +
-                            " | Qtd: " + ing.getQuantidade() +
-                            " | Thread Origem: " + ing.getThreadOrigem()
-            );
-        }
     }
     
 }

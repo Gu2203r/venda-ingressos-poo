@@ -8,9 +8,9 @@ package Venda_Ingresso.ui;
 import Venda_Ingresso.services.GerenciadorIngresso;
 
 
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  *
@@ -21,11 +21,10 @@ public class TelaInicial extends JDialog {
     private JPanel painelFundo;
     private JButton btnComprar;
     private JButton btnGerarRelatorio;
+    private GerenciadorIngresso gerenciador;
 
-
-    private GerenciadorIngresso gerenciador = new GerenciadorIngresso();
-
-    public TelaInicial() {
+    public TelaInicial(GerenciadorIngresso gerenciador){
+        this.gerenciador = gerenciador;
         criarComponentesTela();
     }
 
@@ -49,7 +48,19 @@ public class TelaInicial extends JDialog {
         painelFundo.add(btnGerarRelatorio);
 
         add(painelFundo);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                JanelaGrafica janelaGrafica = new JanelaGrafica();
+                janelaGrafica.imprimirRelatorio(gerenciador.getIngressos());
+                janelaGrafica.setTitle("Relatorio Final!!!");
+                janelaGrafica.setVisible(true);
+                dispose();
+            }
+        });
+
         setLocationRelativeTo(null);
         pack();
         setSize(300, 200);
